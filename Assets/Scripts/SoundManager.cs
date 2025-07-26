@@ -51,7 +51,7 @@ public class SoundManager : MonoBehaviour
 
         // to use in a component/script:
         // public AudioClip <MusicClip>; as datafield
-        // SoundManager.Instance.PlayMusic(<MusicClip>);
+        // SoundManager.instance.PlayMusic(<MusicClip>);
     }
 
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
@@ -65,7 +65,7 @@ public class SoundManager : MonoBehaviour
 
         // to use in component/script:
         // public AudioClip[] <RandomNoises>; as datafield
-        // SoundManager.Instance.RandomSoundEffect(<RandomNoises>);
+        // SoundManager.instance.RandomSoundEffect(<RandomNoises>);
     }
 
 }
