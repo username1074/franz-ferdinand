@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canvasElement = GameObject.Find("Main Menu");
+        exitButton = GameObject.Find("Main Menu/Exit Button").GetComponent<Button>();
         canvasElement.SetActive(true);
         exitButton.onClick.AddListener(() => ExitMainMenu());
     }
