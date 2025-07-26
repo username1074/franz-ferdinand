@@ -11,6 +11,8 @@ public class TextController : MonoBehaviour
     public TextMeshProUGUI buttonText1;
     public TextMeshProUGUI buttonText2;
 
+    public PointSystem pointSystem;
+
     private int curr = 0;
 
     void Start()
@@ -52,6 +54,8 @@ public class TextController : MonoBehaviour
         if (pair.Key == currLabel)
         {
             Debug.Log($"You clicked '{currLabel}', value is: {pair.Value}");
+                if (pair.Value == false)
+                    pointSystem.lives--;
             break;
         }
     }
