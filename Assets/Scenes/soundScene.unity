@@ -388,10 +388,12 @@ MonoBehaviour:
   EffectsSource: {fileID: 1638576452}
   MusicSource: {fileID: 1638576452}
   <bgSounds>k__BackingField: {fileID: 8300000, guid: 2e3ad957dc743ee4e8a3d563073262cc, type: 3}
-  <startUp>k__BackingField: {fileID: 8300000, guid: 9de26a82cbab24e4a8863de7160639f1, type: 3}
+  <startUp>k__BackingField: {fileID: 8300000, guid: 3a55b0dd130c81b40bc9f13a7126b504, type: 3}
   <success>k__BackingField: {fileID: 8300000, guid: 0ff28ce23633f5c4ab4daea872a38095, type: 3}
   <mistake>k__BackingField: {fileID: 8300000, guid: aacf74884f915454482be6682dddbfa6, type: 3}
   <failure>k__BackingField: {fileID: 8300000, guid: dbf2cfd33ee000a46a73624f7b546eae, type: 3}
+  lowPitchRange: 0.95
+  highPitchRange: 1.05
 --- !u!4 &1638576454
 Transform:
   m_ObjectHideFlags: 0
