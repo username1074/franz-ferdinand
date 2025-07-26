@@ -5,6 +5,7 @@ using UnityEngine;
 public class Main : MonoBehaviour
 {
     public ImageController imageController;
+    public TextController textController;
     // Start is called before the first frame update
     void Start()
     {
