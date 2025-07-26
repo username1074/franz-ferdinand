@@ -5,20 +5,53 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
+
 
 public class ImageController : MonoBehaviour
 {
-    public Image image;    
-    public Sprite[] images; 
-    private int curr = 0;
+    public Image image;
+    public string currentCategory = "cat";
+    private int categoryIndex = 0;
+
+
+    [SerializeField] public List<SpriteType> SpriteTypes;
 
     public void NextImage()
     {
-        if (images.Length == 0) return;
+        List<Sprite> filtered = new List<Sprite>();
 
-        curr = (curr + 1) % images.Length;
-        image.sprite = images[curr];
-    }      
+        foreach (var item in SpriteTypes)
+        {
+            if (item.category == currentCategory)
+            {
+                filtered.Add(item.sprite);
+            }
+        }
+
+        if (filtered.Count == 0)
+        {
+            Debug.LogWarning("No images found for category: " + currentCategory);
+            return;
+        }
+
+        categoryIndex = (categoryIndex + 1) % filtered.Count;
+        image.sprite = filtered[categoryIndex];
+    }
+    public void SetCategory(string category)
+    {
+        currentCategory = category;
+        categoryIndex = -1;
+        NextImage();
+    }
+
+    public void OnCategorySelected(string newCategory)
+    {
+        SetCategory(newCategory);
+    }
+
+
+
     public void ChangeImage(string filePath)
     {
         if (!File.Exists(filePath))
@@ -28,7 +61,7 @@ public class ImageController : MonoBehaviour
         }
 
         byte[] fileData = File.ReadAllBytes(filePath);
-        Texture2D tex = new Texture2D(2, 2); // Dummy size; will auto-resize
+        Texture2D tex = new Texture2D(2, 2); 
         if (tex.LoadImage(fileData))
         {
             Sprite newImage = Sprite.Create(
