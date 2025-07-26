@@ -12,9 +12,10 @@ public class TextController : MonoBehaviour
     public Button button2;
     public TextMeshProUGUI buttonText1;
     public TextMeshProUGUI buttonText2;
-    public TextMeshProUGUI instructions;
 
     public ImageController imageController;
+
+    public SoundManager soundManager;
 
     public PointSystem pointSystem;
 
@@ -36,7 +37,6 @@ public class TextController : MonoBehaviour
     {
         if (curr >= set.Count)
         {
-            instructions.text = "Finished!";
             button1.interactable = false;
             button2.interactable = false;
             return;
@@ -65,12 +65,12 @@ public class TextController : MonoBehaviour
             button2.onClick.AddListener(OnTrueClick);
         }
 
-        instructions.text = "Identify the " + set[curr].category;
 
     }
     void OnTrueClick()
     {
         Debug.Log(true);
+        soundManager.Play(soundManager.success);
         curr++;
         UpdateButtons();
     }
@@ -78,8 +78,9 @@ public class TextController : MonoBehaviour
     void OnFalseClick()
     {
         Debug.Log(false);
+        soundManager.Play(soundManager.failure);
         curr++;
-        pointSystem.lives--;
+        pointSystem.Ouch();
         UpdateButtons();
     }
 }

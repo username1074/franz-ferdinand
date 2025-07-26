@@ -16,6 +16,7 @@ public class ImageController : MonoBehaviour
 
 
 
+
     [SerializeField] public List<SpriteType> SpriteTypes;
     void Start()
     {
