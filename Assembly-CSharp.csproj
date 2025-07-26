@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\testingSOunds.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\SwipeController.cs" />
+    <Compile Include="Assets\Scripts\ImageSwiper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
