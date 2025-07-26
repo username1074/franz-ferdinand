@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f7279ee5a82963b4c898abecfaae771c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - efxSource: {instanceID: 0}
+  - musicSource: {instanceID: 0}
+  - <bgSounds>k__BackingField: {instanceID: 0}
+  - <startUp>k__BackingField: {fileID: 8300000, guid: 9de26a82cbab24e4a8863de7160639f1, type: 3}
+  - <success>k__BackingField: {fileID: 8300000, guid: 0ff28ce23633f5c4ab4daea872a38095, type: 3}
+  - <mistake>k__BackingField: {fileID: 8300000, guid: aacf74884f915454482be6682dddbfa6, type: 3}
+  - <failure>k__BackingField: {fileID: 8300000, guid: dbf2cfd33ee000a46a73624f7b546eae, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
