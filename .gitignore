@@ -1,6 +1,8 @@
 .git/
+.vs/
 .vsconfig/
-
+franz-ferdinand.sln
+*.meta
 
 Temp/
 UserSettings/
