@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class PointSystem : MonoBehaviour
 {
     public int lives;
     public GameObject end;
+    public CharbyChar ch;
     public Image flashObject;  
     public float fadeDuration = 1.0f;
     public float visibleDuration = 0.5f;
@@ -24,7 +25,15 @@ public class PointSystem : MonoBehaviour
         if (lives == 0)
         {
             end.SetActive(true);
+            ch.message = "Error 500: == Connection Terminated ==";
+
         }
+    }
+
+    public void Day(){
+        end.SetActive(true);
+        ch.message = "New Day.";
+        StartCoroutine(Wait());
     }
 
     public void Ouch()
@@ -59,6 +68,14 @@ public class PointSystem : MonoBehaviour
         color.a = 0f;
         flashObject.color = color;
         flashObject.enabled = false;
+    }
+
+    IEnumerator Wait()
+    {
+        Debug.Log("Waiting...");
+        yield return new WaitForSeconds(3f);  // wait for 3 seconds
+        Debug.Log("3 seconds passed!");
+        end.SetActive(false);
     }
 
 }
