@@ -23,29 +23,17 @@ public class TitleGraphic : MonoBehaviour
     private float speed;
     public int length;
     private string file = "bootup.txt";
+    public TextAsset bootupTextAsset;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LoadTextFile());
+        fullText = bootupTextAsset.text.Split('\n');
         position = 0;
         timer = 0f;
         currentChar = 0;
         console.text = "";
         lines = new ArrayList();
-    }
-    IEnumerator LoadTextFile()
-    {
-        string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, file);
-        UnityWebRequest www = UnityWebRequest.Get(filePath);
-        yield return www.SendWebRequest();
-        
-        if (www.result != UnityWebRequest.Result.Success)
-        {
-            Debug.LogError($"Failed to load file: {www.error}");
-            yield break;
-        }
-        fullText = www.downloadHandler.text.Split('\n');
     }
 
     void Update()
@@ -64,6 +52,8 @@ public class TitleGraphic : MonoBehaviour
         }
 
         timer += Time.deltaTime;
+        
+
 
         if (timer >= speed && position < fullText.Length) // T
         {
@@ -80,7 +70,7 @@ public class TitleGraphic : MonoBehaviour
                     lines.Clear();
                 }
             }
-            if (currentChar <= fullText[position].Length-1) // This ensures that the current character index does not exceed the length of the string
+            if (currentChar <= fullText[position].Length - 1) // This ensures that the current character index does not exceed the length of the string
             {
                 if (position >= 32 && position <= 67) // This ensures that the text within 32 - 67 inclusive are printed via lines instead of characters
                 {
