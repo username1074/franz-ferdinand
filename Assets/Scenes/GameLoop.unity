@@ -1699,7 +1699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &1634356411
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2669,6 +2669,18 @@ PrefabInstance:
     - target: {fileID: 387283806231027639, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252540609641690106, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.77353454
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252540609641690106, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.77353454
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252540609641690106, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.77353454
       objectReference: {fileID: 0}
     - target: {fileID: 4768362734019121185, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
       propertyPath: m_Name
