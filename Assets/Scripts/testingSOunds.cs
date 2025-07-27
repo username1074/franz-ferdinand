@@ -10,6 +10,7 @@ public class testingSOunds : MonoBehaviour
     void Start()
     {
         SoundManager.instance.PlayMusic(music);
+        //SoundManager.Instance.PlayMusic(music);
     }
 
     // Update is called once per frame
