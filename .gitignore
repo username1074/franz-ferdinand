@@ -12,5 +12,5 @@ Obj/
 Logs/
 Assembly-CSharp.csproj
 /Assets/TextMesh Pro/
-!/Assets/TextMesh Pro/Fonts
+!/Assets/TextMesh\ Pro/Fonts
 !*.meta
