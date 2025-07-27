@@ -16,6 +16,9 @@ public class CardSystem : MonoBehaviour
 
     void Awake()
     {
+        // Check game is still on
+        if (PointSystem.IsGameOver()) GameObject.Destroy(gameObject);
+
         swipeController.OnSwiped += HandleSwipe;
     }
 

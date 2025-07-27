@@ -22,8 +22,9 @@ public class ImageSwiper : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
      public float variation = 0;
      public float amplitude = 1;
      public Vector2 initialPosition = Vector2.up * 1.5f;
+     private Vector3 scale;
 
-     public void OnBeginDrag(PointerEventData eventData)
+   public void OnBeginDrag(PointerEventData eventData)
      {
           isDragging = true;
 
@@ -72,6 +73,11 @@ public class ImageSwiper : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
      void Awake()
      {
+          this.scale = transform.localScale;
+          transform.localScale *= 0.8f;
+
+          StartCoroutine(MoveForward(0.3f));
+
           mainCamera = Camera.main;
 
           targetJoint.target = Vector2.zero + initialPosition;
@@ -131,6 +137,21 @@ public class ImageSwiper : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
           {
                elapsed += Time.deltaTime;
                targetJoint.target = new Vector2(Mathf.Lerp( 0 /*endDragPos.x*/, finalX, elapsed / lifetime), endDragPos.y);
+               yield return null;
+          }
+     }
+
+
+     /// <summary>
+     /// Run this when you take damage to flash the screen red
+     /// </summary>
+     private IEnumerator MoveForward(float fadeInTimeInSeconds)
+     {
+          float elapsed = 0f;
+          while (elapsed < fadeInTimeInSeconds)
+          {
+               elapsed += Time.deltaTime;
+               transform.localScale = scale * Mathf.Lerp(0.8f, 1f, Mathf.Sin( Mathf.PI / 2f * elapsed / fadeInTimeInSeconds ));
                yield return null;
           }
      }

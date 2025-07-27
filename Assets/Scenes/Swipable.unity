@@ -492,19 +492,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 409793918}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1994312328}
-        m_TargetAssemblyTypeName: ImageController, Assembly-CSharp
-        m_MethodName: NextImage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &409793918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +931,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000ebe2231d
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1881,19 +1869,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1748438904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1994312328}
-        m_TargetAssemblyTypeName: ImageController, Assembly-CSharp
-        m_MethodName: NextImage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1748438904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2628,8 +2604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07e09adb23be416885607f5899a615f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 0
   end: {fileID: 786638058}
+  canvas: {fileID: 0}
   flashObject: {fileID: 1599747550}
   fadeDuration: 1
   visibleDuration: 0.5

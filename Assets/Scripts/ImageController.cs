@@ -7,7 +7,6 @@ using System;
 
 public class ImageController : MonoBehaviour
 {
-    static bool isImageInstantiated;
     public Image image;
     private string currentCategory;
     private int categoryIndex;
@@ -105,6 +104,9 @@ public class ImageController : MonoBehaviour
 
     private void MakeCard()
     {
+        // Check game is still on
+        if (PointSystem.IsGameOver()) return;
+
         // check no other card has already been made
         CardSystem[] cards = GameObject.FindObjectsOfType<CardSystem>();
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,10 @@ using UnityEngine.UI;
 
 public class PointSystem : MonoBehaviour
 {
-    public int lives;
+    public static int lives = 3;
     public GameObject end;
-    public Image flashObject;  
+    public Canvas canvas;
+    public Image flashObject;
     public float fadeDuration = 1.0f;
     public float visibleDuration = 0.5f;
 
@@ -21,15 +23,12 @@ public class PointSystem : MonoBehaviour
 
     void Update()
     {
-        if (lives == 0)
-        {
-            end.SetActive(true);
-        }
+
     }
 
-/// <summary>
-/// Reduce lives counter by one and flash the screen red
-/// </summary>
+    /// <summary>
+    /// Reduce lives counter by one and flash the screen red
+    /// </summary>
     public void Ouch()
     {
         lives--;
@@ -37,11 +36,33 @@ public class PointSystem : MonoBehaviour
         {
             StartCoroutine(FlashCoroutine());
         }
+
+        if (lives == 0)
+        {
+            StartCoroutine(EndGame());
+        }
     }
 
-/// <summary>
-/// Run this when you take damage to flash the screen red
-/// </summary>
+    private IEnumerator EndGame()
+    {
+        Debug.Log("Ending Game");
+
+        yield return new WaitForSeconds(0.1f);
+
+        end.SetActive(true);
+
+        // Destroy all cards so they are no longer visible
+        CardSystem[] cards = GameObject.FindObjectsOfType<CardSystem>();
+        foreach (var card in cards)
+        {
+            Debug.Log("Destroying Object");
+            GameObject.Destroy(card.gameObject);
+        }
+    }
+
+    /// <summary>
+    /// Run this when you take damage to flash the screen red
+    /// </summary>
     private IEnumerator FlashCoroutine()
     {
         flashObject.enabled = true;
@@ -65,4 +86,8 @@ public class PointSystem : MonoBehaviour
         flashObject.enabled = false;
     }
 
+    public static bool IsGameOver()
+    {
+        return lives < 1;
+    }
 }

@@ -47,3 +47,6 @@ TagManager:
   - name: Draggable
     uniqueID: 319715161
     locked: 0
+  - name: End
+    uniqueID: 488891115
+    locked: 0
