@@ -1,0 +1,146 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+<<<<<<< HEAD
+
+public class TextController : MonoBehaviour
+{
+    List<KeyValuePair<string, bool>> set = new List<KeyValuePair<string, bool>>();
+=======
+using System;
+
+public class TextController : MonoBehaviour
+{
+    private List<SpriteType> set;
+
+>>>>>>> 33b321c291baebbd137e8847ac68e61b341211eb
+    public Button button1;
+    public Button button2;
+    public TextMeshProUGUI buttonText1;
+    public TextMeshProUGUI buttonText2;
+
+<<<<<<< HEAD
+    public PointSystem pointSystem;
+
+    private int curr = 0;
+
+    void Start()
+    {
+        set.Add(new KeyValuePair<string, bool>("Dog", false));
+        set.Add(new KeyValuePair<string, bool>("Cat", true));
+        
+        buttonText1 = button1.GetComponentInChildren<TextMeshProUGUI>();
+        buttonText2 = button2.GetComponentInChildren<TextMeshProUGUI>();
+
+        // Set initial text
+        UpdateButtons();
+
+        button1.onClick.AddListener(() => ChangeButtonText(button1));
+        button2.onClick.AddListener(() => ChangeButtonText(button2));
+=======
+    public ImageController imageController;
+
+    public SoundManager soundManager;
+
+    public PointSystem pointSystem;
+
+    System.Random r = new System.Random();
+
+    private int curr = 0;
+
+    private bool swap;
+
+    void Start()
+    {
+        set = imageController.SpriteTypes;
+        buttonText1 = button1.GetComponentInChildren<TextMeshProUGUI>();
+        buttonText2 = button2.GetComponentInChildren<TextMeshProUGUI>();
+        UpdateButtons();
+>>>>>>> 33b321c291baebbd137e8847ac68e61b341211eb
+    }
+
+    void UpdateButtons()
+    {
+<<<<<<< HEAD
+        if (curr < set.Count - 1)
+        {
+            buttonText1.text = set[curr].Key;
+            buttonText2.text = set[curr + 1].Key;
+        }
+        else
+        {
+            buttonText1.text = "";
+            buttonText2.text = "";
+        }
+    }
+
+    public void ChangeButtonText(Button button)
+    {
+        TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
+        string currLabel = buttonText.text;
+
+        foreach (var pair in set)
+    {
+        if (pair.Key == currLabel)
+        {
+            Debug.Log($"You clicked '{currLabel}', value is: {pair.Value}");
+                if (pair.Value == false)
+                    pointSystem.lives--;
+            break;
+        }
+    }
+
+        curr += 2; 
+
+=======
+        if (curr >= set.Count)
+        {
+            button1.interactable = false;
+            button2.interactable = false;
+            return;
+        }
+
+        imageController.SetCategory(set[curr].category);
+        imageController.NextImage();
+
+        swap = r.Next(0, 2) == 1;
+        if (swap)
+        {
+            buttonText1.text = set[curr].category;
+            buttonText2.text = set[curr].option;
+            button1.onClick.RemoveAllListeners();
+            button2.onClick.RemoveAllListeners();
+            button1.onClick.AddListener(OnTrueClick);
+            button2.onClick.AddListener(OnFalseClick);
+        }
+        else
+        {
+            buttonText1.text = set[curr].option;
+            buttonText2.text = set[curr].category;
+            button1.onClick.RemoveAllListeners();
+            button2.onClick.RemoveAllListeners();
+            button1.onClick.AddListener(OnFalseClick);
+            button2.onClick.AddListener(OnTrueClick);
+        }
+
+
+    }
+    void OnTrueClick()
+    {
+        Debug.Log(true);
+        soundManager.Play(soundManager.success);
+        curr++;
+        UpdateButtons();
+    }
+
+    void OnFalseClick()
+    {
+        Debug.Log(false);
+        soundManager.Play(soundManager.failure);
+        curr++;
+        pointSystem.Ouch();
+>>>>>>> 33b321c291baebbd137e8847ac68e61b341211eb
+        UpdateButtons();
+    }
+}
