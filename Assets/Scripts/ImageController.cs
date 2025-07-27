@@ -13,11 +13,13 @@ public class ImageController : MonoBehaviour
     public CardSystem cardSystem;
     public Button leftButton;
     public Button rightButton;
+    public GameObject cardObjectPrefab;
 
 
     [SerializeField] public List<SpriteType> SpriteTypes;
     void Start()
     {
+        cardSystem = Instantiate(cardObjectPrefab).GetComponent<CardSystem>();
         // SetCategory("dog");
         cardSystem.OnSwiped += HandleSwipe;
     }
@@ -54,6 +56,9 @@ public class ImageController : MonoBehaviour
 
         categoryIndex = (categoryIndex + 1) % filtered.Count;
         //image.sprite = filtered[categoryIndex];
+
+        cardSystem = Instantiate(cardObjectPrefab).GetComponent<CardSystem>();
+    
         cardSystem.SetSprite(filtered[categoryIndex]);
     }
     public void SetCategory(string category)
