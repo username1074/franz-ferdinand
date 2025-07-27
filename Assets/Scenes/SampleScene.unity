@@ -2071,7 +2071,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2e3ad957dc743ee4e8a3d563073262cc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 574a389920840294085bee91aff83cac, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2171,12 +2171,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EffectsSource: {fileID: 1895115844}
   MusicSource: {fileID: 1895115844}
-  <BgSounds>k__BackingField: {fileID: 0}
-  <StartUp>k__BackingField: {fileID: 0}
-  <Correct>k__BackingField: {fileID: 0}
-  <Success>k__BackingField: {fileID: 0}
-  <Mistake>k__BackingField: {fileID: 0}
-  <Failure>k__BackingField: {fileID: 0}
+  <BgSounds>k__BackingField: {fileID: 8300000, guid: 574a389920840294085bee91aff83cac, type: 3}
+  <StartUp>k__BackingField: {fileID: 8300000, guid: 3a55b0dd130c81b40bc9f13a7126b504, type: 3}
+  <Correct>k__BackingField: {fileID: 8300000, guid: 1f83b704dc270dd4f952cf72a33c06a0, type: 3}
+  <Success>k__BackingField: {fileID: 8300000, guid: 0ff28ce23633f5c4ab4daea872a38095, type: 3}
+  <Mistake>k__BackingField: {fileID: 8300000, guid: 7855ba77e7610ff459095e3b4eef6376, type: 3}
+  <Failure>k__BackingField: {fileID: 8300000, guid: dbf2cfd33ee000a46a73624f7b546eae, type: 3}
   lowPitchRange: 0.95
   highPitchRange: 1.05
 --- !u!4 &1895115846
