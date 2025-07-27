@@ -1842,6 +1842,7 @@ MonoBehaviour:
   canvasElement: {fileID: 1634356409}
   console: {fileID: 1473029941}
   length: 24
+  bootupTextAsset: {fileID: 4900000, guid: fd0cde4deb1be46b195f8d99b8122905, type: 3}
 --- !u!1 &1748438901
 GameObject:
   m_ObjectHideFlags: 0
