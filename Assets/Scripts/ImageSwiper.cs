@@ -8,18 +8,24 @@ public class ImageSwiper : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
      public TargetJoint2D targetJoint;
      public Transform faceObject;
      private Camera mainCamera;
-     private Vector2 startDragPos;
+     private Vector2 initialPos;
+   private Vector2 startDragPos;
      private Vector2 endDragPos;
      private Vector2 currentDragPos;
+   private bool isDragging;
 
-     public void OnBeginDrag(PointerEventData eventData)
+   public void OnBeginDrag(PointerEventData eventData)
      {
+          isDragging = true;
+
           Debug.Log($"Began swipe");
           startDragPos = eventData.position;
      }
 
      public void OnDrag(PointerEventData eventData)
      {
+          if (!isDragging) return;
+
           currentDragPos = eventData.position;
           var worldPoint = mainCamera.ScreenToWorldPoint(currentDragPos);
           targetJoint.target = worldPoint;
@@ -29,6 +35,8 @@ public class ImageSwiper : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
 
      public void OnEndDrag(PointerEventData eventData)
      {
+          isDragging = false;
+
           Debug.Log($"End swipe");
           endDragPos = eventData.position;
           float offset = endDragPos.x - startDragPos.x;
@@ -37,7 +45,7 @@ public class ImageSwiper : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
 
           // this.gameObject.transform.position = new Vector2(50, 50);
 
-          if (false && Mathf.Abs(offset) > 10 /* replace with a number based on screen size */)
+          if (Mathf.Abs(offset) > Screen.width/3 /* replace with a number based on screen size */)
           {
                SendOffscreen();
           }
@@ -46,12 +54,17 @@ public class ImageSwiper : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
                // reset target to center of screen
                // #todo
 
-               var centreOfScreen = new Vector2 (Screen.width, Screen.height);
+               //var centreOfScreen = new Vector2 (Screen.width, Screen.height);
 
                // var centreOfScreen = Screen.size / 2;
 
-               var worldPoint = mainCamera.ScreenToWorldPoint(centreOfScreen);
-               targetJoint.target = worldPoint ;
+               //var worldPoint = mainCamera.ScreenToWorldPoint(centreOfScreen);
+
+               
+
+               Debug.Log( $"Resetting target to initial position{initialPos}");
+
+               targetJoint.target = Vector2.zero ;
           }
      }
 
@@ -63,6 +76,10 @@ public class ImageSwiper : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
      void Awake()
      {
           mainCamera = Camera.main;
+
+
+          initialPos = targetJoint.target;
+          Debug.Log( $"initial position is :{initialPos}");
      }
 
      // Update is called once per frame

@@ -526,6 +526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card System
       objectReference: {fileID: 0}
+    - target: {fileID: 6472655990700887001, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
+      propertyPath: m_Target.y
+      value: -0.24428707
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

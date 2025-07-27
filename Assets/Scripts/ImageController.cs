@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-using UnityEngine.SceneManagement;
-using TMPro;
 using System;
 
 
@@ -13,17 +10,22 @@ public class ImageController : MonoBehaviour
     public Image image;
     private string currentCategory;
     private int categoryIndex;
-
-
+    public CardSystem cardSystem;
 
 
     [SerializeField] public List<SpriteType> SpriteTypes;
     void Start()
     {
         // SetCategory("dog");
+        cardSystem.OnSwiped += HandleSwipe;
     }
 
-    public void NextImage()
+   private void HandleSwipe(bool obj)
+   {
+      throw new NotImplementedException();
+   }
+
+   public void NextImage()
     {
         List<Sprite> filtered = new List<Sprite>();
 
@@ -42,7 +44,8 @@ public class ImageController : MonoBehaviour
         }
 
         categoryIndex = (categoryIndex + 1) % filtered.Count;
-        image.sprite = filtered[categoryIndex];
+        //image.sprite = filtered[categoryIndex];
+        cardSystem.SetSprite(filtered[categoryIndex]);
     }
     public void SetCategory(string category)
     {
