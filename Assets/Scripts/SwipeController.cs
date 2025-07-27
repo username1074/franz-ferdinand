@@ -8,5 +8,7 @@ public class SwipeController : MonoBehaviour
     public void Swipe (bool isSwipeRight)
     {
         Debug.Log($"Swiped {isSwipeRight}");
-    }
+        
+        // Call operator that processes swipes or do it here
+    }   
 }
