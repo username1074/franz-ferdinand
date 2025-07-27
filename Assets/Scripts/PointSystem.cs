@@ -12,6 +12,7 @@ public class PointSystem : MonoBehaviour
     public Image flashObject;  
     public float fadeDuration = 1.0f;
     public float visibleDuration = 0.5f;
+    // [SerializeField] private int day = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +21,20 @@ public class PointSystem : MonoBehaviour
         end.SetActive(false);
         flashObject.enabled = false;
     }
+
     void Update()
     {
         if (lives == 0)
         {
+            ch.ClearTextBox();
             end.SetActive(true);
             ch.message = "Error 500: == Connection Terminated ==";
-
         }
     }
 
-    public void Day(){
+    public void Day()
+    {
+        ch.ClearTextBox();
         end.SetActive(true);
         ch.message = "New Day.";
         StartCoroutine(Wait());
