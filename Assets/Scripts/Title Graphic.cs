@@ -53,9 +53,9 @@ public class TitleGraphic : MonoBehaviour
 
         if (fullText != null && position >= fullText.Length)
         {
-            print(position);
-            print(fullText.Length);
-            print(fullText.ToString());
+            // print(position);                       /** Debug Code for stop condition
+            // print(fullText.Length);            *   checks to see where position is at along with the length of the fullText array
+            // print(fullText.ToString());      */  
             if (Input.anyKeyDown)
             {
                 canvasElement.SetActive(false);
@@ -80,7 +80,7 @@ public class TitleGraphic : MonoBehaviour
                     lines.Clear();
                 }
             }
-            if (currentChar <= fullText[position].Length) // This ensures that the current character index does not exceed the length of the string
+            if (currentChar <= fullText[position].Length-1) // This ensures that the current character index does not exceed the length of the string
             {
                 if (position >= 32 && position <= 67) // This ensures that the text within 32 - 67 inclusive are printed via lines instead of characters
                 {
