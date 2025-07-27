@@ -7,21 +7,19 @@ using System;
 
 public class ImageController : MonoBehaviour
 {
+    static bool isImageInstantiated;
     public Image image;
     private string currentCategory;
     private int categoryIndex;
-    public CardSystem cardSystem;
+    private CardSystem cardSystem;
     public Button leftButton;
     public Button rightButton;
     public GameObject cardObjectPrefab;
 
-
     [SerializeField] public List<SpriteType> SpriteTypes;
     void Start()
     {
-        cardSystem = Instantiate(cardObjectPrefab).GetComponent<CardSystem>();
-        // SetCategory("dog");
-        cardSystem.OnSwiped += HandleSwipe;
+
     }
 
     private void HandleSwipe(bool isSwipeRight)
@@ -57,10 +55,11 @@ public class ImageController : MonoBehaviour
         categoryIndex = (categoryIndex + 1) % filtered.Count;
         //image.sprite = filtered[categoryIndex];
 
-        cardSystem = Instantiate(cardObjectPrefab).GetComponent<CardSystem>();
-    
+        MakeCard();
+
         cardSystem.SetSprite(filtered[categoryIndex]);
     }
+
     public void SetCategory(string category)
     {
         if (currentCategory != category)
@@ -74,6 +73,8 @@ public class ImageController : MonoBehaviour
     {
         SetCategory(newCategory);
     }
+
+
 
     public void ChangeImage(string filePath)
     {
@@ -99,5 +100,29 @@ public class ImageController : MonoBehaviour
         {
             Debug.LogError("Failed to load image from file.");
         }
+    }
+
+
+    private void MakeCard()
+    {
+        // check no other card has already been made
+        CardSystem[] cards = GameObject.FindObjectsOfType<CardSystem>();
+
+        if (cards.Length > 0)
+        {
+            // destroy duplicates
+            foreach (var card in cards)
+            {
+                if (!card.HasBeenSorted())
+                {
+                    card.Destroy();
+                }
+            }
+        }
+
+        var cardObject = Instantiate(cardObjectPrefab, Vector3.up, Quaternion.identity);
+        cardObject.SetActive(true);
+        cardSystem = cardObject.GetComponent<CardSystem>();
+        cardSystem.OnSwiped += HandleSwipe;
     }
 }

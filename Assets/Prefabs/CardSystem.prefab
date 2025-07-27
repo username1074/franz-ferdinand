@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 758872671697015251}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.344038, y: 16.528486, z: -13.028385}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eaf574a0a408484c96a0d06071a6ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasBeenSorted: 0
 --- !u!1 &1095451527864262374
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,9 +143,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e975485cf3f5541568db274215d7a52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardParent: {fileID: 4768362734019121185}
   swipeController: {fileID: 3818205036138998789}
   targetJoint: {fileID: 6472655990700887001}
   faceObject: {fileID: 6962429945810040661}
+  lifetime: 2
+  hoverSpeed: 0.5
+  offset: 0
+  variation: 0
+  amplitude: 0.2
+  initialPosition: {x: 0, y: 0.66}
 --- !u!61 &4701322594517231504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,8 +196,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 34.72, y: 34.72}
-  m_EdgeRadius: 0
+  m_Size: {x: 9, y: 7}
+  m_EdgeRadius: 0.42
 --- !u!1 &1742246047764053300
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +209,7 @@ GameObject:
   - component: {fileID: 2947588593173515363}
   - component: {fileID: 1539565040408087037}
   - component: {fileID: 6472655990700887001}
+  - component: {fileID: 63244142409352409}
   m_Layer: 0
   m_Name: CardParent
   m_TagString: Untagged
@@ -246,7 +255,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -267,10 +276,24 @@ TargetJoint2D:
   m_BreakAction: 3
   m_Anchor: {x: 0, y: 0}
   m_Target: {x: 0, y: 0}
-  m_AutoConfigureTarget: 1
+  m_AutoConfigureTarget: 0
   m_MaxForce: 10000
   m_DampingRatio: 1
-  m_Frequency: 5
+  m_Frequency: 10
+--- !u!114 &63244142409352409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742246047764053300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8615a2f1084ca40ecbe27b9e810f702a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetJoint2D: {fileID: 6472655990700887001}
+  pivot: {fileID: 6962429945810040661}
 --- !u!1 &4768362734019121185
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &387283806231027639
 Transform:
   m_ObjectHideFlags: 0

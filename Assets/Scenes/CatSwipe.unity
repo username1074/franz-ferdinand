@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eaf574a0a408484c96a0d06071a6ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasBeenSorted: 0
 --- !u!4 &852731062
 Transform:
   m_ObjectHideFlags: 0
@@ -480,15 +481,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 387283806231027639, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.71475697
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 387283806231027639, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.51658976
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 387283806231027639, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.398866
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 387283806231027639, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
       propertyPath: m_LocalRotation.w
@@ -518,17 +519,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1502024839897275552, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
-      propertyPath: swipeController
-      value: 
-      objectReference: {fileID: 852731061}
     - target: {fileID: 4768362734019121185, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
       propertyPath: m_Name
       value: Card System
-      objectReference: {fileID: 0}
-    - target: {fileID: 6472655990700887001, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
-      propertyPath: m_Target.y
-      value: -0.24428707
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

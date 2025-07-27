@@ -12,13 +12,13 @@ public class PointSystem : MonoBehaviour
     public float fadeDuration = 1.0f;
     public float visibleDuration = 0.5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         lives = 3;
         end.SetActive(false);
         flashObject.enabled = false;
     }
+
     void Update()
     {
         if (lives == 0)
@@ -27,6 +27,9 @@ public class PointSystem : MonoBehaviour
         }
     }
 
+/// <summary>
+/// Reduce lives counter by one and flash the screen red
+/// </summary>
     public void Ouch()
     {
         lives--;
@@ -34,10 +37,11 @@ public class PointSystem : MonoBehaviour
         {
             StartCoroutine(FlashCoroutine());
         }
-
     }
 
-
+/// <summary>
+/// Run this when you take damage to flash the screen red
+/// </summary>
     private IEnumerator FlashCoroutine()
     {
         flashObject.enabled = true;

@@ -14,14 +14,22 @@ public class CardSystem : MonoBehaviour
         spriteRenderer.sprite = sprite;
     }
 
-   void Awake()
-   {
+    void Awake()
+    {
         swipeController.OnSwiped += HandleSwipe;
-   }
+    }
 
     private void HandleSwipe(bool isSwipeRight)
     {
-        OnSwiped.Invoke(isSwipeRight) ;
+        OnSwiped.Invoke(isSwipeRight);
+    }
+
+    public bool HasBeenSorted()
+    {
+        return swipeController.HasBeenSorted();
+    }
+    public void Destroy()
+    {
+        GameObject.Destroy(gameObject);
     }
 }
-
