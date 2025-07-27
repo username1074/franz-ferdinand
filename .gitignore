@@ -3,6 +3,7 @@
 .vsconfig/
 franz-ferdinand.sln
 *.meta
+.csproj
 
 Temp/
 UserSettings/
