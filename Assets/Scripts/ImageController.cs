@@ -7,7 +7,7 @@ using System;
 
 public class ImageController : MonoBehaviour
 {
-    public Image image;
+    //public Image image;
     private string currentCategory;
     private int categoryIndex;
     private CardSystem cardSystem;
@@ -93,7 +93,7 @@ public class ImageController : MonoBehaviour
                 new Vector2(0.5f, 0.5f)
             );
 
-            image.sprite = newImage;
+            //image.sprite = newImage;
         }
         else
         {

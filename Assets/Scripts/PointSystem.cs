@@ -9,7 +9,7 @@ public class PointSystem : MonoBehaviour
 {
     public static int lives = 3;
     public GameObject end;
-    public Canvas canvas;
+    //public Canvas canvas;
     public Image flashObject;
     public CharbyChar ch;
     public float fadeDuration = 1.0f;
