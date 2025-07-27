@@ -2,7 +2,6 @@
 .vs/
 .vsconfig/
 franz-ferdinand.sln
-*.meta
 *.csproj
 
 Temp/
