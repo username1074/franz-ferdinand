@@ -319,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5280790089515917434}
+  swipeController: {fileID: 3818205036138998789}
 --- !u!1 &7709016790004756908
 GameObject:
   m_ObjectHideFlags: 0

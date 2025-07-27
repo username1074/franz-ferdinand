@@ -45,26 +45,15 @@ public class ImageSwiper : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
 
           // this.gameObject.transform.position = new Vector2(50, 50);
 
-          if (Mathf.Abs(offset) > Screen.width/3 /* replace with a number based on screen size */)
+          if (Mathf.Abs(offset) > Screen.width / 3 /* replace with a number based on screen size */)
           {
                SendOffscreen();
           }
           else
           {
-               // reset target to center of screen
-               // #todo
+               Debug.Log($"Resetting target to initial position{initialPos}");
 
-               //var centreOfScreen = new Vector2 (Screen.width, Screen.height);
-
-               // var centreOfScreen = Screen.size / 2;
-
-               //var worldPoint = mainCamera.ScreenToWorldPoint(centreOfScreen);
-
-               
-
-               Debug.Log( $"Resetting target to initial position{initialPos}");
-
-               targetJoint.target = Vector2.zero ;
+               targetJoint.target = Vector2.zero;               
           }
      }
 

@@ -11,6 +11,8 @@ public class ImageController : MonoBehaviour
     private string currentCategory;
     private int categoryIndex;
     public CardSystem cardSystem;
+    public Button leftButton;
+    public Button rightButton;
 
 
     [SerializeField] public List<SpriteType> SpriteTypes;
@@ -20,12 +22,19 @@ public class ImageController : MonoBehaviour
         cardSystem.OnSwiped += HandleSwipe;
     }
 
-   private void HandleSwipe(bool obj)
-   {
-      throw new NotImplementedException();
-   }
+    private void HandleSwipe(bool isSwipeRight)
+    {
+        if (isSwipeRight)
+        {
+            rightButton.onClick.Invoke();
+        }
+        else
+        {
+            leftButton.onClick.Invoke();
+        }
+    }
 
-   public void NextImage()
+    public void NextImage()
     {
         List<Sprite> filtered = new List<Sprite>();
 
@@ -52,7 +61,7 @@ public class ImageController : MonoBehaviour
         if (currentCategory != category)
         {
             currentCategory = category;
-            categoryIndex = -1; 
+            categoryIndex = -1;
         }
     }
 

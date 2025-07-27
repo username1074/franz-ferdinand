@@ -2433,6 +2433,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 529034748}
   cardSystem: {fileID: 567724336}
+  leftButton: {fileID: 409793917}
+  rightButton: {fileID: 1748438903}
   SpriteTypes:
   - sprite: {fileID: 21300000, guid: 8eeb6c1878c0f4f50a2dcdb7414370a5, type: 3}
     category: cat
@@ -2672,6 +2674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 5280790089515917434, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8eeb6c1878c0f4f50a2dcdb7414370a5, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
