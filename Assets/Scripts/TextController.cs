@@ -70,7 +70,7 @@ public class TextController : MonoBehaviour
     void OnTrueClick()
     {
         Debug.Log(true);
-        soundManager.Play(soundManager.success);
+        soundManager.Play(soundManager.Correct);
         curr++;
         UpdateButtons();
     }
@@ -78,7 +78,7 @@ public class TextController : MonoBehaviour
     void OnFalseClick()
     {
         Debug.Log(false);
-        soundManager.Play(soundManager.failure);
+        soundManager.Play(soundManager.Mistake);
         curr++;
         pointSystem.Ouch();
         UpdateButtons();

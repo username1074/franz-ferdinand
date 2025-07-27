@@ -4,13 +4,14 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - efxSource: {instanceID: 0}
-  - musicSource: {instanceID: 0}
-  - <bgSounds>k__BackingField: {instanceID: 0}
-  - <startUp>k__BackingField: {fileID: 8300000, guid: 9de26a82cbab24e4a8863de7160639f1, type: 3}
-  - <success>k__BackingField: {fileID: 8300000, guid: 0ff28ce23633f5c4ab4daea872a38095, type: 3}
-  - <mistake>k__BackingField: {fileID: 8300000, guid: aacf74884f915454482be6682dddbfa6, type: 3}
-  - <failure>k__BackingField: {fileID: 8300000, guid: dbf2cfd33ee000a46a73624f7b546eae, type: 3}
+  - EffectsSource: {instanceID: 0}
+  - MusicSource: {instanceID: 0}
+  - <BgSounds>k__BackingField: {fileID: 8300000, guid: 574a389920840294085bee91aff83cac, type: 3}
+  - <StartUp>k__BackingField: {fileID: 8300000, guid: 3a55b0dd130c81b40bc9f13a7126b504, type: 3}
+  - <Correct>k__BackingField: {fileID: 8300000, guid: 1f83b704dc270dd4f952cf72a33c06a0, type: 3}
+  - <Success>k__BackingField: {fileID: 8300000, guid: 0ff28ce23633f5c4ab4daea872a38095, type: 3}
+  - <Mistake>k__BackingField: {fileID: 8300000, guid: 7855ba77e7610ff459095e3b4eef6376, type: 3}
+  - <Failure>k__BackingField: {fileID: 8300000, guid: dbf2cfd33ee000a46a73624f7b546eae, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

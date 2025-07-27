@@ -13,15 +13,17 @@ public class SoundManager : MonoBehaviour
     public AudioSource EffectsSource;
     public AudioSource MusicSource;
 
-    [field: SerializeField] public AudioClip bgSounds { get; set; }
+    [field: SerializeField] public AudioClip BgSounds { get; set; }
 
-    [field: SerializeField] public AudioClip startUp { get; set; }
+    [field: SerializeField] public AudioClip StartUp { get; set; }
 
-    [field: SerializeField] public AudioClip success { get; set; }
+    [field: SerializeField] public AudioClip Correct { get; set; }
 
-    [field: SerializeField] public AudioClip mistake { get; set; }
+    [field: SerializeField] public AudioClip Success { get; set; }
 
-    [field: SerializeField] public AudioClip failure { get; set; }
+    [field: SerializeField] public AudioClip Mistake { get; set; }
+
+    [field: SerializeField] public AudioClip Failure { get; set; }
 
     public float lowPitchRange = .95f;
     public float highPitchRange = 1.05f;
@@ -33,7 +35,7 @@ public class SoundManager : MonoBehaviour
         else if (instance != this) Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-        Play(startUp);
+        Play(StartUp);
     }
 
     // Play a single clip through the sound effects source.
