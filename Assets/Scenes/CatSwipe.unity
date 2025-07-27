@@ -518,6 +518,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1502024839897275552, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
+      propertyPath: swipeController
+      value: 
+      objectReference: {fileID: 852731061}
     - target: {fileID: 4768362734019121185, guid: d202e8efaa9fa4747aa9b23d99fde512, type: 3}
       propertyPath: m_Name
       value: Card System
