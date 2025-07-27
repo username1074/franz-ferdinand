@@ -1,26 +1,36 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-using UnityEngine.SceneManagement;
-using TMPro;
 using System;
 
 
 public class ImageController : MonoBehaviour
 {
-    public Image image;
+    //public Image image;
     private string currentCategory;
     private int categoryIndex;
-
-
-
+    private CardSystem cardSystem;
+    public Button leftButton;
+    public Button rightButton;
+    public GameObject cardObjectPrefab;
 
     [SerializeField] public List<SpriteType> SpriteTypes;
     void Start()
     {
-        // SetCategory("dog");
+
+    }
+
+    private void HandleSwipe(bool isSwipeRight)
+    {
+        if (isSwipeRight)
+        {
+            rightButton.onClick.Invoke();
+        }
+        else
+        {
+            leftButton.onClick.Invoke();
+        }
     }
 
     public void NextImage()
@@ -42,14 +52,19 @@ public class ImageController : MonoBehaviour
         }
 
         categoryIndex = (categoryIndex + 1) % filtered.Count;
-        image.sprite = filtered[categoryIndex];
+        //image.sprite = filtered[categoryIndex];
+
+        MakeCard();
+
+        cardSystem.SetSprite(filtered[categoryIndex]);
     }
+
     public void SetCategory(string category)
     {
         if (currentCategory != category)
         {
             currentCategory = category;
-            categoryIndex = -1; 
+            categoryIndex = -1;
         }
     }
 
@@ -57,6 +72,8 @@ public class ImageController : MonoBehaviour
     {
         SetCategory(newCategory);
     }
+
+
 
     public void ChangeImage(string filePath)
     {
@@ -76,11 +93,38 @@ public class ImageController : MonoBehaviour
                 new Vector2(0.5f, 0.5f)
             );
 
-            image.sprite = newImage;
+            //image.sprite = newImage;
         }
         else
         {
             Debug.LogError("Failed to load image from file.");
         }
+    }
+
+
+    private void MakeCard()
+    {
+        // Check game is still on
+        if (PointSystem.IsGameOver()) return;
+
+        // check no other card has already been made
+        CardSystem[] cards = GameObject.FindObjectsOfType<CardSystem>();
+
+        if (cards.Length > 0)
+        {
+            // destroy duplicates
+            foreach (var card in cards)
+            {
+                if (!card.HasBeenSorted())
+                {
+                    card.Destroy();
+                }
+            }
+        }
+
+        var cardObject = Instantiate(cardObjectPrefab, Vector3.up, Quaternion.identity);
+        cardObject.SetActive(true);
+        cardSystem = cardObject.GetComponent<CardSystem>();
+        cardSystem.OnSwiped += HandleSwipe;
     }
 }

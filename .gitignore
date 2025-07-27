@@ -11,3 +11,7 @@ Library/
 Obj/
 Logs/
 Assembly-CSharp.csproj
+###/Assets/TextMesh Pro/
+!/Assets/TextMesh\ Pro/Fonts
+Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf
+Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
