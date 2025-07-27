@@ -39,6 +39,8 @@ public class TextController : MonoBehaviour
         {
             button1.interactable = false;
             button2.interactable = false;
+            pointSystem.end.SetActive(true);
+            pointSystem.ch.message = "Image training complete. \nInitialising data upload...\nUpload complete.\nConfirm success of Image Sorting Model?\nExiting program...";
             return;
         }
 
@@ -63,6 +65,9 @@ public class TextController : MonoBehaviour
             button2.onClick.RemoveAllListeners();
             button1.onClick.AddListener(OnFalseClick);
             button2.onClick.AddListener(OnTrueClick);
+        }
+        if (curr == 20 || curr==40){
+            pointSystem.Day();
         }
 
 

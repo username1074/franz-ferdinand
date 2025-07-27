@@ -12,10 +12,9 @@ public class SoundManager : MonoBehaviour
     // Audio players components.
     public AudioSource EffectsSource;
     public AudioSource MusicSource;
+    public GameObject MainMenu;
 
     [field: SerializeField] public AudioClip BgSounds { get; set; }
-
-    [field: SerializeField] public AudioClip StartUp { get; set; }
 
     [field: SerializeField] public AudioClip Correct { get; set; }
 
@@ -35,7 +34,6 @@ public class SoundManager : MonoBehaviour
         else if (instance != this) Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-        Play(StartUp);
     }
 
     // Play a single clip through the sound effects source.
@@ -48,7 +46,10 @@ public class SoundManager : MonoBehaviour
     // Play a single clip through the music source.
     public void PlayMusic(AudioClip clip)
     {
-        MusicSource.clip = clip;
+        if (MainMenu.activeSelf)
+        {
+            MusicSource.clip = BgSounds;
+        }
         MusicSource.Play();
 
         // to use in a component/script:

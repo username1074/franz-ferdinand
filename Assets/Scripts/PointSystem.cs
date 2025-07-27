@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class PointSystem : MonoBehaviour
 {
@@ -11,8 +11,10 @@ public class PointSystem : MonoBehaviour
     public GameObject end;
     public Canvas canvas;
     public Image flashObject;
+    public CharbyChar ch;
     public float fadeDuration = 1.0f;
     public float visibleDuration = 0.5f;
+    // [SerializeField] private int day = 1;
 
     void Start()
     {
@@ -21,9 +23,12 @@ public class PointSystem : MonoBehaviour
         flashObject.enabled = false;
     }
 
-    void Update()
+    public void Day()
     {
-
+        ch.ClearTextBox();
+        end.SetActive(true);
+        ch.message = "New Day.";
+        StartCoroutine(Wait());
     }
 
     /// <summary>
@@ -39,6 +44,9 @@ public class PointSystem : MonoBehaviour
 
         if (lives == 0)
         {
+            ch.ClearTextBox();
+            end.SetActive(true);
+            ch.message = "Error 500: == Connection Terminated ==";
             StartCoroutine(EndGame());
         }
     }
@@ -55,7 +63,7 @@ public class PointSystem : MonoBehaviour
         CardSystem[] cards = GameObject.FindObjectsOfType<CardSystem>();
         foreach (var card in cards)
         {
-            Debug.Log("Destroying Object");
+            Debug.Log("Destroying Cards");
             GameObject.Destroy(card.gameObject);
         }
     }
@@ -89,5 +97,13 @@ public class PointSystem : MonoBehaviour
     public static bool IsGameOver()
     {
         return lives < 1;
+    }
+    
+    IEnumerator Wait()
+    {
+        Debug.Log("Waiting...");
+        yield return new WaitForSeconds(3f);  // wait for 3 seconds
+        Debug.Log("3 seconds passed!");
+        end.SetActive(false);
     }
 }

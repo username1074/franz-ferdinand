@@ -100,6 +100,8 @@ public class TitleGraphic : MonoBehaviour
             timer = 0;
         }
 
+        
+
     }
 
 }

@@ -9,16 +9,16 @@ public class CharbyChar : MonoBehaviour
     public string message;
     private int n = 0;
     private float time = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (n <= message.Length-1)
+        TypeCharacter();
+    }
+
+    public void TypeCharacter()
+    {
+        if (n <= message.Length - 1)
         {
             if (time >= 0.05f)
             {
@@ -35,5 +35,10 @@ public class CharbyChar : MonoBehaviour
                 time += Time.deltaTime;
             }
         }
+    }
+
+    public void ClearTextBox()
+    {
+        textBox.text = string.Empty;
     }
 }
