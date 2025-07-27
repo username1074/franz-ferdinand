@@ -39,6 +39,12 @@ public class CharbyChar : MonoBehaviour
 
     public void ClearTextBox()
     {
+        n = 0;
         textBox.text = string.Empty;
     }
+
+    //public void SetTextBox(string text)
+    //{
+    //    textBox.text = string.Empty;
+    //}
 }
