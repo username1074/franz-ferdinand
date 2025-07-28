@@ -40,6 +40,7 @@ public class TextController : MonoBehaviour
             button1.interactable = false;
             button2.interactable = false;
             pointSystem.end.SetActive(true);
+            pointSystem.ch.ClearTextBox();
             pointSystem.ch.message = "Image training complete. \nInitialising data upload...\nUpload complete.\nConfirm success of Image Sorting Model?\nExiting program...";
             return;
         }
